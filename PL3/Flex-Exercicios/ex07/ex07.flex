@@ -1,16 +1,20 @@
+/* Escrever um programa que permite identificar números com parte decimal (com ou sem sinal). */
 %{
     #include <stdio.h>
 %}
 
-ALGARISMO [0-9]+
-INTEIRO (-?{ALGARISMO})
-REAIS (-?{ALGARISMO}.{ALGARISMO}|-?{ALGARISMO},{ALGARISMO})
-%%
-{INTEIRO} {printf("Não tem parte decimal bro.\n");}                   
-{REAIS}  {printf("Este tem bro.\n");}
-.*  {printf("Erro\n");}
+%option noyywrap
+%option noinput
+%option nounput
+
+NATURAL ([0-9]+)
+REAL ((-?{NATURAL}\.{NATURAL})|(-?{NATURAL},{NATURAL}))
 
 %%
+{REAL} {printf("Numero decimal bro: %s\n", yytext);}
+.|\n
+%%
+
 int main ()
 {
     yylex();

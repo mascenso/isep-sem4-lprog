@@ -1,3 +1,11 @@
+/* 4.5.Escrever um programa que dado um ficheiro de texto, mostra:
+    - número de algarismos;
+    - número de letras do alfabeto;
+    - número de linhas de texto;
+    - número de espaços ou tabulações (\t);
+    - número de caracteres não identificados nos pontos anteriores.
+    */
+
 %{
     #include <stdio.h>
     int counterAlgarismos; //número de algarismos;

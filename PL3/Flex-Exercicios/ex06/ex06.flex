@@ -1,14 +1,17 @@
+/* 6. Escrever um programa que permite identificar números inteiros (com ou sem sinal). */
 %{
     #include <stdio.h>
 %}
 
-ALGARISMO [0-9]+
-INTEIRO (-?{ALGARISMO})
-REAIS (-?{ALGARISMO}.{ALGARISMO}|-?{ALGARISMO},{ALGARISMO})
+%option noyywrap
+%option noinput
+%option nounput
+
+INTEIRO (-?[0-9]+)
+
 %%
-{INTEIRO} {printf("É número inteiro.\n");}                   
-{REAIS}  {printf("É número real.\n");}
-.*  {printf("Erro\n");}
+{INTEIRO} {printf("Numero inteiro: %s\n", yytext);}
+.|\n
 
 %%
 int main ()

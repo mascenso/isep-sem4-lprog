@@ -1,3 +1,5 @@
+/* 2. Escrever um programa que permite substituir as seguintes cadeias: “FEUP” por “ISEP” e “2007” por “2008”. */
+
 %{
     #include <stdio.h>
 %}
